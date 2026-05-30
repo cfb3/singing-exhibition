@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Singing Exhibition — Pick a Genre</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>🎤 Singing Exhibition</h1>
+    <p class="subtitle">Pick a genre, listen to the songs, then cast your vote on paper!</p>
+  </header>
+
+  <!-- Genre buttons. The data-genre value must match a key in js/app.js -->
+  <nav class="genre-nav" id="genreNav">
+    <button class="genre-btn" data-genre="pop">Pop</button>
+    <button class="genre-btn" data-genre="classical">Classical / Opera</button>
+    <button class="genre-btn" data-genre="jazz">Jazz</button>
+    <button class="genre-btn" data-genre="rock">Rock</button>
+    <button class="genre-btn" data-genre="country">Country</button>
+  </nav>
+
+  <main>
+    <!-- Shown before any genre is picked -->
+    <p class="hint" id="hint">👆 Choose a genre above to see the songs.</p>
+
+    <!-- Title of the currently selected genre -->
+    <h2 class="genre-title" id="genreTitle" hidden></h2>
+
+    <!-- Videos for the selected genre get rendered here -->
+    <section class="video-grid" id="videoGrid"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made for the singing exhibition 🎶</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

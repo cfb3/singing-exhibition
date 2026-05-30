@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Editor cruft
+*.swp
+*~
+
+# Old local backups (not part of the site)
+*.backup
