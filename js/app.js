@@ -56,7 +56,7 @@ const GENRES = {
   rock: {
     label: "Rock",
     songs: [
-      { title: "Song 1 — replace me", youtubeId: "PLACEHOLDER" },
+      { title: "Under Pressure — Queen & David Bowie", youtubeId: "WsuBBd9W4hk", start: 160, end: 200 },
       { title: "Song 2 — replace me", youtubeId: "PLACEHOLDER" },
       { title: "Song 3 — replace me", youtubeId: "PLACEHOLDER" },
     ],
