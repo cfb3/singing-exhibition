@@ -64,9 +64,9 @@ const GENRES = {
   country: {
     label: "Country",
     songs: [
-      { title: "Song 1 — replace me", youtubeId: "PLACEHOLDER" },
-      { title: "Song 2 — replace me", youtubeId: "PLACEHOLDER" },
-      { title: "Song 3 — replace me", youtubeId: "PLACEHOLDER" },
+      { title: "Jolene — Dolly Parton", youtubeId: "Ixrje2rXLMA", start: 8, end: 38 },
+      { title: "Breathe — Faith Hill", youtubeId: "yCmsZUN4r_s", start: 75, end: 105 },
+      { title: "Ring of Fire — Johnny Cash", youtubeId: "1WaV2x8GXj0", start: 20, end: 50 },
     ],
   },
 };
