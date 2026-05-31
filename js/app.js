@@ -50,7 +50,7 @@ const GENRES = {
     songs: [
       { title: "Nostalgia (The Day I Knew) — Samara Joy", youtubeId: "LvUidbMTKkU", start: 40, end: 70 },
       { title: "Summertime — Ella Fitzgerald", youtubeId: "u2bigf337aU", start: 7, end: 37 },
-      { title: "Strange Fruit — Billie Holiday", youtubeId: "-DGY9HvChXk", start: 41, end: 71 },
+      { title: "What a Wonderful World — Louis Armstrong", youtubeId: "CaCSuzR4DwM", start: 4, end: 34 },
     ],
   },
   rock: {
