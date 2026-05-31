@@ -57,8 +57,8 @@ const GENRES = {
     label: "Rock",
     songs: [
       { title: "Under Pressure — Queen & David Bowie", youtubeId: "WsuBBd9W4hk", start: 160, end: 200 },
-      { title: "Song 2 — replace me", youtubeId: "PLACEHOLDER" },
-      { title: "Song 3 — replace me", youtubeId: "PLACEHOLDER" },
+      { title: "Dream On — Aerosmith", youtubeId: "iJDtukGW79Y", start: 130, end: 160 },
+      { title: "Kashmir — Led Zeppelin", youtubeId: "ww9484EM2OQ", start: 235, end: 265 },
     ],
   },
   country: {
