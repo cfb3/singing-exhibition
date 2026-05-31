@@ -48,9 +48,9 @@ const GENRES = {
   jazz: {
     label: "Jazz",
     songs: [
-      { title: "Song 1 — replace me", youtubeId: "PLACEHOLDER" },
-      { title: "Song 2 — replace me", youtubeId: "PLACEHOLDER" },
-      { title: "Song 3 — replace me", youtubeId: "PLACEHOLDER" },
+      { title: "Nostalgia (The Day I Knew) — Samara Joy", youtubeId: "LvUidbMTKkU", start: 40, end: 70 },
+      { title: "Summertime — Ella Fitzgerald", youtubeId: "u2bigf337aU", start: 7, end: 37 },
+      { title: "Strange Fruit — Billie Holiday", youtubeId: "-DGY9HvChXk", start: 41, end: 71 },
     ],
   },
   rock: {
