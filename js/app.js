@@ -118,6 +118,9 @@ function selectGenre(genreKey, button) {
   genreTitle.hidden = false;
   genreTitle.textContent = genre.label;
 
+  // Let CSS tint the cards to match this genre's button color.
+  videoGrid.dataset.genre = genreKey;
+
   renderVideos(genre.songs);
 }
 

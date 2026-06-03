@@ -1,34 +1,98 @@
 /* ============================================================
-   Basic, neutral styling — meant to be a starting point.
-   Feel free to change colors, fonts, and spacing!
+   "Cotton Candy" pastel theme 🍬
+   Soft lavender→pink gradient, rounded display font, and
+   bouncy per-genre pastel buttons.
    ============================================================ */
+
+:root {
+  --pop: #ff9ecf;        /* pink */
+  --classical: #c4a7f5;  /* lavender */
+  --jazz: #a7d3ff;       /* baby blue */
+  --rock: #ffb38a;       /* peach */
+  --country: #ffe08a;    /* butter */
+
+  --ink: #5a4a5e;        /* soft mauve-charcoal text */
+  --ink-soft: #9b8aa0;   /* muted mauve */
+  --card-shadow: 0 8px 24px rgba(255, 150, 200, 0.25);
+}
 
 * {
   box-sizing: border-box;
 }
 
+/* ---------- Decorative background blobs ---------- */
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;        /* sit behind all content */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 36vw;
+  min-width: 280px;
+  max-width: 600px;
+  height: auto;
+  color: #c9b6f5;     /* per-blob color set below; drives stroke + fill */
+}
+
+.blob-outline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-opacity: 0.85;
+}
+
+.blob-inner {
+  fill: currentColor;
+  fill-opacity: 0.18;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-opacity: 0.5;
+}
+
+/* Scatter across the whole viewport. Non-uniform scaleX/scaleY (plus
+   rotation) stretches each blob so they read as lopsided, not circular. */
+.blob-1 { top: -8%;  left: -10%; color: #c9b6f5; transform: rotate(-14deg) scale(1.2, 0.8); }  /* purple   */
+.blob-2 { top: -12%; left: 34%;  color: #ffcaa3; transform: rotate(22deg)  scale(0.85, 1.3); } /* peach    */
+.blob-3 { top: 3%;   right: -12%; color: #ffc2dd; transform: rotate(9deg)  scale(1.25, 0.85); }/* pink     */
+.blob-4 { top: 34%;  left: -12%; color: #a9e7d6; transform: rotate(-28deg) scale(1.15, 0.8); } /* mint     */
+.blob-5 { top: 42%;  right: -8%; color: #a7c8ff; transform: rotate(16deg)  scale(0.8, 1.3); }  /* baby blue*/
+.blob-6 { bottom: -10%; left: 8%; color: #ffe9a8; transform: rotate(18deg) scale(1.3, 0.85); } /* yellow   */
+.blob-7 { bottom: 4%; left: 46%; color: #ffb3c1; transform: rotate(-20deg) scale(0.9, 1.2); }  /* coral    */
+.blob-8 { bottom: -8%; right: -10%; color: #d9c7f7; transform: rotate(-10deg) scale(1.2, 0.85);}/* lavender*/
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: #222;
-  background: #f5f5f7;
+  font-family: "Quicksand", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(160deg, #f3e8ff 0%, #ffe4ef 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
   line-height: 1.5;
 }
 
 /* ---------- Header ---------- */
 .site-header {
   text-align: center;
-  padding: 2rem 1rem 1rem;
+  padding: 2.5rem 1rem 1rem;
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-family: "Baloo 2", cursive;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #d46fa6;
+  text-shadow: 0 2px 0 #fff;
 }
 
 .subtitle {
   margin: 0.5rem 0 0;
-  color: #555;
+  color: var(--ink-soft);
+  font-weight: 500;
 }
 
 /* ---------- Genre buttons ---------- */
@@ -41,24 +105,49 @@ body {
 }
 
 .genre-btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.7rem 1.6rem;
+  font-family: "Baloo 2", cursive;
   font-size: 1rem;
-  border: 2px solid #999;
+  font-weight: 600;
+  color: var(--ink);
+  border: 2px solid transparent;
   border-radius: 999px;
   background: #fff;
+  box-shadow: 0 4px 0 rgba(212, 111, 166, 0.18);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.15s ease, background 0.15s ease;
 }
 
+/* Bouncy hover — lift + scale up */
 .genre-btn:hover {
-  border-color: #333;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(212, 111, 166, 0.28);
 }
 
-.genre-btn.active {
-  background: #333;
-  color: #fff;
-  border-color: #333;
+.genre-btn:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 2px 0 rgba(212, 111, 166, 0.18);
 }
+
+/* Per-genre pastel tints on the border (resting state) */
+.genre-btn[data-genre="pop"]       { border-color: var(--pop); }
+.genre-btn[data-genre="classical"] { border-color: var(--classical); }
+.genre-btn[data-genre="jazz"]      { border-color: var(--jazz); }
+.genre-btn[data-genre="rock"]      { border-color: var(--rock); }
+.genre-btn[data-genre="country"]   { border-color: var(--country); }
+
+/* Active = filled with the genre pastel */
+.genre-btn.active {
+  color: #fff;
+  border-color: transparent;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+.genre-btn[data-genre="pop"].active       { background: var(--pop); }
+.genre-btn[data-genre="classical"].active { background: var(--classical); }
+.genre-btn[data-genre="jazz"].active      { background: var(--jazz); }
+.genre-btn[data-genre="rock"].active      { background: var(--rock); }
+.genre-btn[data-genre="country"].active   { background: var(--country); }
 
 /* ---------- Main content ---------- */
 main {
@@ -69,13 +158,17 @@ main {
 
 .hint {
   text-align: center;
-  color: #777;
-  font-size: 1.1rem;
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 .genre-title {
   text-align: center;
-  font-size: 1.6rem;
+  font-family: "Baloo 2", cursive;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #d46fa6;
 }
 
 /* ---------- Video grid ---------- */
@@ -87,18 +180,35 @@ main {
 
 .video-card {
   background: #fff;
-  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
   padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
   /* Stack title above video and let the video sit at the bottom, so
      videos line up across the row even when titles wrap to 2-3 lines. */
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(255, 150, 200, 0.32);
+}
+
+/* Tint cards to match the selected genre's button color */
+.video-grid[data-genre="pop"]       .video-card { background: var(--pop); }
+.video-grid[data-genre="classical"] .video-card { background: var(--classical); }
+.video-grid[data-genre="jazz"]      .video-card { background: var(--jazz); }
+.video-grid[data-genre="rock"]      .video-card { background: var(--rock); }
+.video-grid[data-genre="country"]   .video-card { background: var(--country); }
 
 .video-card h3 {
   margin: 0 0 0.75rem;
+  font-family: "Baloo 2", cursive;
+  font-weight: 600;
   font-size: 1.1rem;
+  color: var(--ink);
 }
 
 /* Keep videos at a 16:9 ratio and fill the card width */
@@ -106,7 +216,7 @@ main {
 .video-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 8px;
+  border-radius: 14px;
   overflow: hidden;
 }
 
@@ -128,8 +238,8 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #eee;
-  color: #888;
+  background: #fdeef5;
+  color: var(--ink-soft);
   padding: 1rem;
 }
 
@@ -137,6 +247,7 @@ main {
 .site-footer {
   text-align: center;
   padding: 2rem 1rem;
-  color: #999;
+  color: var(--ink-soft);
   font-size: 0.9rem;
+  font-weight: 500;
 }
